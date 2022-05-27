@@ -23,7 +23,7 @@ function lakukanLooping(arrPegawai) {
 
       Contoh: ["Aisyah Nirmala", "Mansur Faisal", ...]
   */
-  let hasilLooping = null;
+  let hasilLooping = [];
 
   /*
     TODO 2: Buatlah sebuah variabel bernama "jumlahPria"
@@ -50,6 +50,26 @@ function lakukanLooping(arrPegawai) {
   */
   let komentar = null;
 
+  const GENDER_MALE = 'M'
+  const GENDER_FEMALE = 'F'
+
+  dataYangAkanDilooping.forEach(({ id, namaDepan, namaBelakang, jenisKelamin }) => {
+    if (jenisKelamin === GENDER_FEMALE) {
+      jumlahWanita++
+    } else if (jenisKelamin === GENDER_MALE) {
+      jumlahPria++;
+    }
+
+    hasilLooping.push(`${namaDepan} ${namaBelakang}`)
+  });
+
+  if (jumlahPria > jumlahWanita) {
+    komentar = "Jumlah Pria lebih banyak dari Wanita"
+  } else if (jumlahPria < jumlahWanita) {
+    komentar = "Jumlah Wanita lebih banyak dari Pria"
+  }else{
+    komentar = "Jumlah Pria dan Wanita berimbang"
+  }
   // ! JANGAN DIMODIFIKASI
   return {
     hasilLooping,
